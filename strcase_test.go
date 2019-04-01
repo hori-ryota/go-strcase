@@ -1,0 +1,178 @@
+package strcase_test
+
+var testPatterns = []struct {
+	s  string
+	uc string
+	lc string
+	us string
+	ls string
+}{
+	{
+		s:  "",
+		uc: "",
+		lc: "",
+		us: "",
+		ls: "",
+	},
+	{
+		s:  "a",
+		uc: "A",
+		lc: "a",
+		us: "A",
+		ls: "a",
+	},
+	{
+		s:  "aA",
+		uc: "AA",
+		lc: "aA",
+		us: "A_A",
+		ls: "a_a",
+	},
+	{
+		s:  "aaAA",
+		uc: "AaAa",
+		lc: "aaAa",
+		us: "AA_AA",
+		ls: "aa_aa",
+	},
+	{
+		s:  "Aa",
+		uc: "Aa",
+		lc: "aa",
+		us: "AA",
+		ls: "aa",
+	},
+	{
+		s:  "AAaa",
+		uc: "AAaa",
+		lc: "aAaa",
+		us: "A_AAA",
+		ls: "a_aaa",
+	},
+	{
+		s:  "a_a",
+		uc: "AA",
+		lc: "aA",
+		us: "A_A",
+		ls: "a_a",
+	},
+	{
+		s:  "aa_aa",
+		uc: "AaAa",
+		lc: "aaAa",
+		us: "AA_AA",
+		ls: "aa_aa",
+	},
+	{
+		s:  "A_A",
+		uc: "AA",
+		lc: "aA",
+		us: "A_A",
+		ls: "a_a",
+	},
+	{
+		s:  "AA_AA",
+		uc: "AaAa",
+		lc: "aaAa",
+		us: "AA_AA",
+		ls: "aa_aa",
+	},
+	{
+		s:  "a_A",
+		uc: "AA",
+		lc: "aA",
+		us: "A_A",
+		ls: "a_a",
+	},
+	{
+		s:  "aa_AA",
+		uc: "AaAa",
+		lc: "aaAa",
+		us: "AA_AA",
+		ls: "aa_aa",
+	},
+	{
+		s:  "A_a",
+		uc: "AA",
+		lc: "aA",
+		us: "A_A",
+		ls: "a_a",
+	},
+	{
+		s:  "AA_aa",
+		uc: "AaAa",
+		lc: "aaAa",
+		us: "AA_AA",
+		ls: "aa_aa",
+	},
+	{
+		s:  "id",
+		uc: "ID",
+		lc: "id",
+		us: "ID",
+		ls: "id",
+	},
+	{
+		s:  "idId",
+		uc: "IDID",
+		lc: "idID",
+		us: "ID_ID",
+		ls: "id_id",
+	},
+	{
+		s:  "IdId",
+		uc: "IDID",
+		lc: "idID",
+		us: "ID_ID",
+		ls: "id_id",
+	},
+	{
+		s:  "IDID",
+		uc: "Idid",
+		lc: "idid",
+		us: "IDID",
+		ls: "idid",
+	},
+	{
+		s:  "IDId",
+		uc: "IDID",
+		lc: "idID",
+		us: "ID_ID",
+		ls: "id_id",
+	},
+	{
+		s:  "iDId",
+		uc: "IDID",
+		lc: "iDID",
+		us: "I_D_ID",
+		ls: "i_d_id",
+	},
+	{
+		s:  "id_id",
+		uc: "IDID",
+		lc: "idID",
+		us: "ID_ID",
+		ls: "id_id",
+	},
+	{
+		s:  "ID_ID",
+		uc: "IDID",
+		lc: "idID",
+		us: "ID_ID",
+		ls: "id_id",
+	},
+	{
+		s:  "idAa",
+		uc: "IDAa",
+		lc: "idAa",
+		us: "ID_AA",
+		ls: "id_aa",
+	},
+	{
+		s:  "ida",
+		uc: "Ida",
+		lc: "ida",
+		us: "IDA",
+		ls: "ida",
+	},
+}
