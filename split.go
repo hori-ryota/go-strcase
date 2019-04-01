@@ -4,7 +4,7 @@ import (
 	"unicode"
 )
 
-func SplitWord(s string) []string {
+func SplitIntoWords(s string) []string {
 	if s == "" {
 		return []string{}
 	}

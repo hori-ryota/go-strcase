@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestSplitWord(t *testing.T) {
+func TestSplitIntoWords(t *testing.T) {
 	for _, tt := range []struct {
 		s string
 		t []string
@@ -108,7 +108,7 @@ func TestSplitWord(t *testing.T) {
 	} {
 		tt := tt
 		t.Run(tt.s, func(t *testing.T) {
-			assert.Equal(t, tt.t, strcase.SplitWord(tt.s))
+			assert.Equal(t, tt.t, strcase.SplitIntoWords(tt.s))
 		})
 	}
 }

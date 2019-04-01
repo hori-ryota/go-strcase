@@ -8,7 +8,7 @@ func ToUpperSnake(s string) string {
 	if s == "" {
 		return s
 	}
-	ss := SplitWord(s)
+	ss := SplitIntoWords(s)
 	for i, s := range ss {
 		ss[i] = strings.ToUpper(s)
 	}

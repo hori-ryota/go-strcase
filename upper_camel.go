@@ -8,7 +8,7 @@ func ToUpperCamel(s string) string {
 	if s == "" {
 		return s
 	}
-	ss := SplitWord(s)
+	ss := SplitIntoWords(s)
 	for i, s := range ss {
 		if CommonInitialisms[strings.ToLower(s)] {
 			ss[i] = strings.ToUpper(s)

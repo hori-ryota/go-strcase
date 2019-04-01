@@ -8,7 +8,7 @@ func ToLowerCamel(s string) string {
 	if s == "" {
 		return s
 	}
-	ss := SplitWord(s)
+	ss := SplitIntoWords(s)
 	for i, s := range ss {
 		if i == 0 {
 			ss[i] = strings.ToLower(s)
