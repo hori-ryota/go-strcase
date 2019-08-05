@@ -1,6 +1,7 @@
 package strcase
 
 import (
+	"strings"
 	"unicode"
 )
 
@@ -11,25 +12,29 @@ func SplitIntoWords(s string) []string {
 	if len(s) == 1 {
 		return []string{s}
 	}
-	tt := []string{}
-	d := 0
-	runes := []rune(s)
-	for i := 1; i < len(runes); i++ {
-		switch {
-		case !unicode.IsLetter(runes[i]):
-			tt = append(tt, string(runes[d:i]))
-			i++
-			d = i
-		case unicode.IsUpper(runes[i]) && unicode.IsLower(runes[i-1]):
-			tt = append(tt, string(runes[d:i]))
-			d = i
-		case unicode.IsUpper(runes[i]) && unicode.IsUpper(runes[i-1]):
-			if i != len(runes)-1 && unicode.IsLower(runes[i+1]) {
-				tt = append(tt, string(runes[d:i]))
-				d = i
+	words := []string{}
+	ss := strings.FieldsFunc(s, func(c rune) bool {
+		return !unicode.IsLetter(c) && !unicode.IsNumber(c)
+	})
+	for _, s := range ss {
+		if s == "" {
+			continue
+		}
+		runes := []rune(s)
+		d := 0
+		for i := 0; i < len(runes); i++ {
+			switch {
+			case i+1 < len(runes) && !unicode.IsUpper(runes[i]) && unicode.IsUpper(runes[i+1]):
+				words = append(words, string(runes[d:i+1]))
+				d = i + 1
+				continue
+			case i+2 < len(runes) && unicode.IsUpper(runes[i+1]) && unicode.IsLower(runes[i+2]):
+				words = append(words, string(runes[d:i+1]))
+				d = i + 1
+				continue
 			}
 		}
+		words = append(words, string(runes[d:]))
 	}
-	tt = append(tt, string(runes[d:]))
-	return tt
+	return words
 }
