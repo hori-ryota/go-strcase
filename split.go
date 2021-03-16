@@ -6,6 +6,10 @@ import (
 )
 
 func SplitIntoWords(s string) []string {
+	return SplitIntoWordsWithInitialisms(s, CommonInitialisms)
+}
+
+func SplitIntoWordsWithInitialisms(s string, initialisms map[string]bool) []string {
 	if s == "" {
 		return []string{}
 	}
@@ -29,7 +33,7 @@ func SplitIntoWords(s string) []string {
 				d = i + 1
 				continue
 			case i+2 < len(runes) && unicode.IsUpper(runes[i+1]) && unicode.IsLower(runes[i+2]):
-				if CommonInitialisms[strings.ToLower(string(runes[d:i+2]))] && runes[i+2] == 's' {
+				if initialisms[strings.ToLower(string(runes[d:i+2]))] && runes[i+2] == 's' {
 					continue
 				}
 				words = append(words, string(runes[d:i+1]))

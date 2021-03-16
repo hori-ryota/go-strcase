@@ -5,6 +5,10 @@ import (
 )
 
 func ToUpperCamel(s string) string {
+	return ToUpperCamelWithInitialisms(s, CommonInitialisms)
+}
+
+func ToUpperCamelWithInitialisms(s string, initialisms map[string]bool) string {
 	if s == "" {
 		return s
 	}
@@ -14,7 +18,7 @@ func ToUpperCamel(s string) string {
 			ss[i] = strings.ToUpper(s)
 			continue
 		}
-		if strings.ToLower(s[len(s)-1:]) == "s" && CommonInitialisms[strings.ToLower(s[:len(s)-1])] {
+		if strings.ToLower(s[len(s)-1:]) == "s" && initialisms[strings.ToLower(s[:len(s)-1])] {
 			ss[i] = strings.ToUpper(s[:len(s)-1]) + "s"
 			continue
 		}

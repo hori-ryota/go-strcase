@@ -5,10 +5,14 @@ import (
 )
 
 func ToLowerCamel(s string) string {
+	return ToLowerCamelWithInitialisms(s, CommonInitialisms)
+}
+
+func ToLowerCamelWithInitialisms(s string, initialisms map[string]bool) string {
 	if s == "" {
 		return s
 	}
-	ss := SplitIntoWords(s)
+	ss := SplitIntoWordsWithInitialisms(s, initialisms)
 	for i, s := range ss {
 		if i == 0 {
 			ss[i] = strings.ToLower(s)
@@ -18,7 +22,7 @@ func ToLowerCamel(s string) string {
 			ss[i] = strings.ToUpper(s)
 			continue
 		}
-		if strings.ToLower(s[len(s)-1:]) == "s" && CommonInitialisms[strings.ToLower(s[:len(s)-1])] {
+		if strings.ToLower(s[len(s)-1:]) == "s" && initialisms[strings.ToLower(s[:len(s)-1])] {
 			ss[i] = strings.ToUpper(s[:len(s)-1]) + "s"
 			continue
 		}
