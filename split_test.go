@@ -105,6 +105,12 @@ func TestSplitIntoWords(t *testing.T) {
 				"aa",
 			},
 		},
+		{
+			s: "IDs",
+			t: []string{
+				"IDs",
+			},
+		},
 	} {
 		tt := tt
 		t.Run(tt.s, func(t *testing.T) {

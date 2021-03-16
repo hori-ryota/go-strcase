@@ -29,6 +29,9 @@ func SplitIntoWords(s string) []string {
 				d = i + 1
 				continue
 			case i+2 < len(runes) && unicode.IsUpper(runes[i+1]) && unicode.IsLower(runes[i+2]):
+				if CommonInitialisms[strings.ToLower(string(runes[d:i+2]))] && runes[i+2] == 's' {
+					continue
+				}
 				words = append(words, string(runes[d:i+1]))
 				d = i + 1
 				continue
