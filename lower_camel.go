@@ -12,6 +12,9 @@ func ToLowerCamelWithInitialisms(s string, initialisms map[string]bool) string {
 	if s == "" {
 		return s
 	}
+	if initialisms == nil {
+		initialisms = map[string]bool{}
+	}
 	ss := SplitIntoWordsWithInitialisms(s, initialisms)
 	for i, s := range ss {
 		if i == 0 {

@@ -16,6 +16,9 @@ func SplitIntoWordsWithInitialisms(s string, initialisms map[string]bool) []stri
 	if len(s) == 1 {
 		return []string{s}
 	}
+	if initialisms == nil {
+		initialisms = map[string]bool{}
+	}
 	words := []string{}
 	ss := strings.FieldsFunc(s, func(c rune) bool {
 		return !unicode.IsLetter(c) && !unicode.IsNumber(c)
