@@ -18,7 +18,7 @@ func ToLowerCamelWithInitialisms(s string, initialisms map[string]bool) string {
 			ss[i] = strings.ToLower(s)
 			continue
 		}
-		if CommonInitialisms[strings.ToLower(s)] {
+		if initialisms[strings.ToLower(s)] {
 			ss[i] = strings.ToUpper(s)
 			continue
 		}

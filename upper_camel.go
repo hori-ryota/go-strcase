@@ -14,7 +14,7 @@ func ToUpperCamelWithInitialisms(s string, initialisms map[string]bool) string {
 	}
 	ss := SplitIntoWords(s)
 	for i, s := range ss {
-		if CommonInitialisms[strings.ToLower(s)] {
+		if initialisms[strings.ToLower(s)] {
 			ss[i] = strings.ToUpper(s)
 			continue
 		}
