@@ -10,7 +10,7 @@ func SplitIntoWords(s string) []string {
 	return SplitIntoWordsWithInitialisms(s, CommonInitialisms)
 }
 
-// SplitIntoWords splits string to words with initialisms.
+// SplitIntoWordsWithInitialisms splits string to words with initialisms.
 func SplitIntoWordsWithInitialisms(s string, initialisms map[string]bool) []string {
 	if s == "" {
 		return []string{}
