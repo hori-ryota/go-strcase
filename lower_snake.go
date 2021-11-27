@@ -4,6 +4,7 @@ import (
 	"strings"
 )
 
+// ToLowerSnake convert string to lower_snake.
 func ToLowerSnake(s string) string {
 	if s == "" {
 		return s

@@ -4,6 +4,7 @@ import (
 	"strings"
 )
 
+// ToUpperSnake convert string to UPPER_SNAKE.
 func ToUpperSnake(s string) string {
 	if s == "" {
 		return s

@@ -1,6 +1,7 @@
 package strcase
 
-// from https://github.com/golang/lint
+// CommonInitialisms is a set of common initialisms.
+// Copy from https://github.com/golang/lint `commonInitialisms`.
 var CommonInitialisms = map[string]bool{
 	"acl":   true,
 	"api":   true,

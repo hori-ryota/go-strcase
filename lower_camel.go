@@ -4,10 +4,12 @@ import (
 	"strings"
 )
 
+// ToLowerCamel convert string to lowerCamel.
 func ToLowerCamel(s string) string {
 	return ToLowerCamelWithInitialisms(s, CommonInitialisms)
 }
 
+// ToLowerCamelWithInitialisms convert string to lowerCamel with initialisms.
 func ToLowerCamelWithInitialisms(s string, initialisms map[string]bool) string {
 	if s == "" {
 		return s

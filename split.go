@@ -5,10 +5,12 @@ import (
 	"unicode"
 )
 
+// SplitIntoWords splits string to words.
 func SplitIntoWords(s string) []string {
 	return SplitIntoWordsWithInitialisms(s, CommonInitialisms)
 }
 
+// SplitIntoWords splits string to words with initialisms.
 func SplitIntoWordsWithInitialisms(s string, initialisms map[string]bool) []string {
 	if s == "" {
 		return []string{}
